@@ -1,0 +1,70 @@
+@import url('https://fonts.googleapis.com/css2?family=Yanone+Kaffeesatz:wght@500&display=swap');
+
+.titApp {
+    /* margin-left: 5vw; */
+    top: 0;
+    /* margin-top: 20px; */
+    width: 100%;
+    display: flex;
+    height: fit-content;
+    align-items: center;
+    justify-content: flex-start;
+    padding: 5px;
+    position: fixed;
+    z-index: 10;
+    background-color: white;
+}
+
+.titApp h3 {
+    padding-left: 50px;
+    font-size: calc(2em + 1vw);
+    font-weight: 700;
+    color: #733ca9;
+    font-family: 'Yanone Kaffeesatz', sans-serif;
+    margin: 15px 5px;
+}
+
+.titApp img {
+    width: calc(2em + 1vw);
+    margin-left: 20px;
+    margin-right: 20px;
+}
+
+.titApp .contFecha {
+    color: #8795af;
+    margin-left: auto;
+    margin-right: 20px;
+    margin-top: 0;
+    margin-bottom: 0;
+    height: fit-content;
+}
+
+.titApp .contFecha p {
+    margin: 0;
+
+}
+
+.titApp .contFecha .dia {
+    font-size: 3vh;
+    border-bottom: 1px solid #c8ccd3;
+}
+
+.titApp .contFecha .mes {
+    font-size: 3vh;
+}
+
+.titApp .contFecha .año {
+    font-size: 3vh;
+}
+
+@media (max-width: 650px) {
+    .titApp {
+        height: 5vh;
+    }
+
+
+    .titApp .contFecha {
+        color: transparent;
+        display: none;
+    }
+}

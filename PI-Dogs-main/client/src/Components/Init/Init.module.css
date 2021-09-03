@@ -1,0 +1,140 @@
+html {
+    /* /// scroll desactivaadoo */
+    overflow-x: hidden;
+    /* overflow-y: hidden;  */
+}
+
+.divRey {
+
+    background-color: rgba(238, 237, 236, 0.801);
+    width: 100vw;
+    height: 100vh;
+    background-size: cover;
+    display: flex;
+    flex-direction: column;
+    text-decoration: none;
+    color: black;
+    overflow-x: hidden;
+    overflow-y: hidden;
+}
+
+.contMayor {
+    width: content;
+    height: fit-content;
+    /* background-color: rgba(250, 235, 215, 0.473); */
+    /* margin-top: 10vh; */
+    margin: auto 10px auto 40%;
+    display: flex;
+    flex-direction: column;
+    border-radius: 32px;
+    z-index: 10;
+    text-align: left;
+    /* padding-right: 10px; */
+}
+
+.contMayor h1 {
+    font-size: calc(2em + 1vw);
+    font-weight: 700;
+    color: #733ca9;
+    font-family: 'Yanone Kaffeesatz', sans-serif;
+    margin: 15px 5px;
+    text-shadow: white 1px 1px 1px;
+
+}
+
+.contMayor p {
+    font-size: calc(1em + 1vw);
+    font-weight: 700;
+    color: #443d4b;
+    font-family: 'Yanone Kaffeesatz', sans-serif;
+    margin: 15px 15px 15px 0;
+}
+
+.boton {
+    background-color: #733ca9;
+    border-radius: 24px;
+    margin: 5px 5px 25px 5px;
+    text-decoration: none;
+    padding: 2px 15px;
+    color: aliceblue;
+    /* margin: auto; */
+    width: fit-content;
+}
+
+.boton h2 {
+    margin: 7px 10px;
+    font-family: 'Yanone Kaffeesatz', sans-serif;
+    letter-spacing: 5px;
+    font-weight: 500;
+}
+
+.forma {
+    transform: translateX(-45%);
+    position: absolute;
+    width: 800px;
+    max-width: 900px;
+    min-width: none;
+    height: 100vh;
+    /* background-color: red; */
+    background-image: url('../../assets/perro_3.jpg');
+    background-repeat: no-repeat;
+    background-position: right;
+    border-radius: 50%;
+}
+
+.forma_2 {
+    transform: translate(80vw, 60vh);
+    position: fixed;
+    width: 500px;
+    /* max-width: 100px; */
+    min-width: none;
+    height: 500px;
+    /* background-color: red; */
+    /* background-image: url('../../assets/perro_3.jpg'); */
+    background-repeat: no-repeat;
+    /* background-position: right; */
+    border-radius: 50%;
+}
+
+@media (max-width: 700px) {
+    .contMayor p {
+        color: #2e2d30;
+        letter-spacing: 3px;
+        text-shadow: white 1px 1px 1px;
+    }
+
+    /* .divRey {
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: center;
+    }
+
+    .contMayor {
+        flex-direction: column;
+    } */
+}
+
+
+
+
+
+@media (max-width: 700px) {
+
+    .divRey {
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: center;
+    }
+
+    .contMayor {
+        flex-direction: column;
+    }
+
+    .forma {
+        width: 600px;
+    }
+
+    .forma_2 {
+        display: none
+    }
+}

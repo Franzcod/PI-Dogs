@@ -1,0 +1,67 @@
+.divRey {
+
+    margin-top: calc(1em + 1vw);
+}
+
+.contInputs {
+    margin-top: 10px;
+    height: fit-content;
+    width: 95vw;
+}
+
+.contRey {
+    padding: 20px 20px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    flex-wrap: wrap;
+    column-gap: 130px;
+    row-gap: 40px;
+    width: 100vw;
+    height: fit-content;
+}
+
+
+.divBuscador {
+    width: 100%;
+    height: 35px;
+    padding: 3px 0 3px 0;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.input {
+    /* margin-top: 3px; */
+    /* font-size: 20px; */
+    font-size: calc(1em + 0.2vw);
+    background-color: white;
+
+    padding-left: 10px;
+    border-radius: 8px;
+}
+
+.iconEnter {
+    /* margin: 10px 15px 10px 2px; */
+    top: 0;
+    font-size: 35px;
+    color: rgba(138, 93, 183, 1);
+    cursor: pointer;
+}
+
+.contFiltros {
+    width: 100%;
+    height: fit-content;
+    padding: 3px 0 3px 0;
+    display: flex;
+    justify-content: center;
+}
+
+.contFiltros select {
+
+    margin: 10px 10px;
+    border: none;
+    background-color: rgba(138, 93, 183, 1);
+    color: #fff;
+    border-radius: 16px;
+    cursor: pointer;
+}

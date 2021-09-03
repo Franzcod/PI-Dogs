@@ -27,7 +27,7 @@ router.get("/", async (req, res, next) => {
         weight: el.weight,
         life_span: el.life_span,
         image: el.image,
-        temperament: el.Temperaments.map((i) => {
+        temperaments: el.Temperaments.map((i) => {
           return i.name;
         }).join(", "),
       };
@@ -73,7 +73,7 @@ router.get("/:id", async (req, res, next) => {
         weight: getDataFromDB.weight,
         life_span: getDataFromDB.life_span,
         image: getDataFromDB.image,
-        temperament: getDataFromDB.Temperaments.map((i) => {
+        temperaments: getDataFromDB.Temperaments.map((i) => {
           return i.name;
         }).join(", "),
       });
@@ -90,7 +90,7 @@ router.get("/:id", async (req, res, next) => {
 //  POST /________________________________________________________________
 
 router.post("/", async (req, res, next) => {
-  const { name, height, weight, life_span, image, temperament } = req.body;
+  const { name, height, weight, life_span, image, temperaments } = req.body;
   try {
     let dogCreated = await Dog.create({
       name,
@@ -99,11 +99,11 @@ router.post("/", async (req, res, next) => {
       life_span,
       image,
     });
-    if (temperament.length) {
-      temperament.map(async (tem) => {
+    if (temperaments.length) {
+      temperaments.map(async (tem) => {
         try {
           let temper = await Temperament.findOne({ where: { name: tem } });
-          console.log(temper.dataValues.name);
+          // console.log(temper.dataValues.name);
           dogCreated.addTemperament(temper);
           // res.send(dogCreated);
           console.log("perro cargado");
