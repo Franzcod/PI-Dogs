@@ -1,30 +1,34 @@
-import {} from "../Actions";
+import {
+  GET_DOGS,
+  GET_TEMPERAMENTS,
+  GET_DOGS_CREATE_USER,
+  GET_DOGS_FOR_API,
+  GET_DOGS_FOR_TEMP,
+  GET_DOGS_FOR_BREED,
+} from "../Actions/types";
 
 const initialState = {
   dogs: [],
-  // detail: {},
-  // temperaments: [],
-  // favorites: [],
-  // selected: [],
+  temteraments: [],
+  // pages: [0, 7],
   // pag: {pages: [], n: 1, max: [], items: 9, render: true, c: 0},
 };
 
 export default function rootReducer(state = initialState, action) {
   switch (action.type) {
-    // case SET_DOGS:
-    //     return {...state, dogs: action.payload};
-    // case SET_TEMPERAMENTS:
-    //     return {...state, temperaments: action.payload};
-    // case SET_DETAIL:
-    //     return {...state, detail: action.payload};
-    // case RESET_DETAIL:
-    //     return {...state, detail: action.payload};
-    // case SET_FAVORITES:
-    //     return {...state, favorites: action.payload};
-    // case 'SET_SELECTED':
-    //     return {...state, selected: action.payload};
-    // case 'SET_PAG':
-    //     return {...state, pag: action.payload};
+    case GET_DOGS:
+      return { ...state, dogs: action.payload };
+    case GET_TEMPERAMENTS:
+      return { ...state, temperaments: action.payload };
+    case GET_DOGS_CREATE_USER:
+      return { ...state, dogs: action.payload };
+    case GET_DOGS_FOR_API:
+      return { ...state, dogs: action.payload };
+    case GET_DOGS_FOR_TEMP:
+      return { ...state, dogs: action.payload };
+    case GET_DOGS_FOR_BREED:
+      return { ...state, dogs: action.payload };
+
     default:
       return { ...state };
   }

@@ -8,9 +8,9 @@ export default function PageOptions() {
       <Link style={{ textDecoration: "none" }} to="/home">
         <p>Home</p>{" "}
       </Link>
-      <Link style={{ textDecoration: "none" }} to="/game">
+      {/*<Link style={{ textDecoration: "none" }} to="/game">
         <p>Game</p>{" "}
-      </Link>
+  </Link>*/}
       <Link style={{ textDecoration: "none" }} to="/about">
         <p>About</p>{" "}
       </Link>

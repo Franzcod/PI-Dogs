@@ -23,10 +23,14 @@ module.exports = (sequelize) => {
     life_span: {
       type: DataTypes.STRING,
     },
+    userCreated: {
+      type: DataTypes.BOOLEAN,
+      default: true,
+    },
     image: {
       type: DataTypes.STRING,
       defaultValue:
-        "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQF7f6KGofoKDuP-9v_p1U6akb_1KPBVx2giQ&usqp=CAU",
+        "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR_Z4Vx8DPwA15EgaQlEaVd55HCyaETzoM9l3jF62ikyePqOztNzIRhqKIoAESnD0sJ-sg&usqp=CAU",
     },
   });
 };

@@ -15,6 +15,7 @@ async function getAllDataAPI() {
       weight: el.weight.metric,
       life_span: el.life_span,
       image: el.image.url,
+      userCreate: false,
       temperaments: el.temperament,
     };
   });

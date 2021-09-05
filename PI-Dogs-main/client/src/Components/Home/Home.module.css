@@ -9,13 +9,17 @@
     width: 95vw;
 }
 
+.loadingCont img {
+    height: 500px;
+}
+
 .contRey {
     padding: 20px 20px;
     display: flex;
     flex-direction: row;
     justify-content: center;
     flex-wrap: wrap;
-    column-gap: 130px;
+    column-gap: 110px;
     row-gap: 40px;
     width: 100vw;
     height: fit-content;
@@ -33,7 +37,7 @@
 .input {
     /* margin-top: 3px; */
     /* font-size: 20px; */
-    font-size: calc(1em + 0.2vw);
+    font-size: calc(1em + 0.5vw);
     background-color: white;
 
     padding-left: 10px;
@@ -57,11 +61,28 @@
 }
 
 .contFiltros select {
-
+    /* padding: 5px; */
+    /* max-width: 150px; */
+    font-size: calc(1em + 0.4vw);
     margin: 10px 10px;
     border: none;
-    background-color: rgba(138, 93, 183, 1);
+    background-color: rgb(166, 140, 193);
     color: #fff;
+    border-radius: 16px;
+    cursor: pointer;
+    padding-left: 5px;
+    transition: all 0.25s ease;
+    /* appearance: none; */
+}
+
+
+
+.arowButton {
+    font-size: calc(1em + 2vw);
+    margin: 10px 10px;
+    border: none;
+    /* background-color: rgba(138, 93, 183, 1); */
+    color: rgba(138, 93, 183, 1);
     border-radius: 16px;
     cursor: pointer;
 }

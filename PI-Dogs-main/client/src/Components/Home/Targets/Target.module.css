@@ -5,7 +5,7 @@
     background-color: rgb(251, 251, 251);
     /* margin: 50px; */
     border-radius: 5px;
-
+    cursor: pointer;
     -webkit-box-shadow: inset -1px 3px 8px 5px #1f88ff00, 2px 5px 16px 0px #0B325E, 5px 5px 15px 5px rgba(0, 0, 0, 0);
     box-shadow: inset -1px 3px 8px 5px #1f88ff00, 2px 5px 16px 0px #0B325E, 5px 5px 15px 5px rgba(0, 0, 0, 0);
 
@@ -30,6 +30,14 @@
     display: flex;
     flex-direction: row;
     justify-content: space-between;
+    max-lines: 1;
+}
+
+
+
+.pesoAndIcon {
+    display: flex;
+    justify-content: space-between;
 }
 
 .iconFav {
@@ -37,18 +45,88 @@
 }
 
 
-
-.cardDatos .cardNombre {
-    color: black;
-    margin: 0;
-    text-overflow: ellipsis;
-    font-size: calc(1em + 0.5vw);
-    font-weight: 500;
-    /* right: 0; */
-    display: flex;
+/* ICONO CN EFECTO DE CARTEL ANIMADO */
+.tooltip {
+    display: inline-block;
+    position: relative;
+    border-bottom: 1px dotted #666;
+    text-align: left;
 }
 
-.pesoYalto {
+.iconUser {
+    font-size: calc(1em + 0.4vw);
+}
+
+.tooltip .bottom {
+    min-width: 50px;
+    top: 40px;
+    left: 50%;
+    transform: translate(-50%, 0);
+    padding: 5px 5px;
+    color: #444444;
+    background-color: #EEEEEE;
+    font-weight: normal;
+    /* font-size: 13px; */
+    border-radius: 8px;
+    position: absolute;
+    z-index: 99999999;
+    box-sizing: border-box;
+    border: 1px solid #6633CC;
+    box-shadow: 0 1px 8px rgba(0, 0, 0, 0.5);
+    visibility: hidden;
+    opacity: 0;
+    transition: opacity 0.8s;
+}
+
+.tooltip:hover .bottom {
+    visibility: visible;
+    opacity: 1;
+}
+
+.tooltip .bottom i {
+    position: absolute;
+    bottom: 100%;
+    left: 50%;
+    margin-left: -12px;
+    width: 24px;
+    height: 12px;
+    overflow: hidden;
+}
+
+.tooltip .bottom i::after {
+    content: '';
+    position: absolute;
+    width: 12px;
+    height: 12px;
+    left: 50%;
+    transform: translate(-50%, 50%) rotate(45deg);
+    background-color: #EEEEEE;
+    border: 1px solid #6633CC;
+    box-shadow: 0 1px 8px rgba(0, 0, 0, 0.5);
+}
+
+/* ACA TERMINA EL CSS DEL BOTON DEL USUARIO */
+
+
+
+.cardDatos .contTitulo .cardNombre {
+    color: #733ca9;
+    margin: 0;
+    overflow: ellipsis;
+    font-size: calc(1em + 0.6vw);
+    font-weight: 500;
+    display: flex;
+    max-lines: 1;
+    max-height: 40px;
+    overflow: hidden;
+    align-items: left;
+}
+
+.cardDatos .contTitulo .cardNombre p {
+    margin: 5px 2px;
+}
+
+.datos {
     display: flex;
     flex-direction: column;
     justify-content: space-around;
@@ -58,9 +136,28 @@ span {
     font-weight: bold;
 }
 
-.cardDatos .cardDato {
+.cardDato {
+    color: black;
     margin: 5px 2px;
     text-align: left;
     text-overflow: ellipsis;
+    max-lines: 1;
     /* text-overflow: clip; */
+}
+
+
+.temperamentos {
+    /* background-color: #733ca9; */
+    word-wrap: break-word;
+    max-height: 50px;
+    text-align: left;
+    overflow: clip;
+    max-lines: 2;
+
+}
+
+.temperamentos p {
+    margin: 5px 2px;
+    color: black;
+
 }

@@ -14,7 +14,7 @@ export function Init() {
           <h2>INICIAR</h2>
         </Link>
       </div>
-      <div className={styles.forma} style={{ backgroundColor: "red" }}></div>
+      <div className={styles.forma}></div>
       <div
         className={styles.forma_2}
         style={{ backgroundImage: `url(${img})` }}

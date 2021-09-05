@@ -1,0 +1,49 @@
+.contRey {}
+
+
+
+
+.contAnim {
+    /* background-image: url('./back_2.png'); */
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 10vh;
+    max-height: 300px;
+    border-bottom: 5px solid rgb(57, 153, 57);
+    /* background-position-y: -345px; */
+    /* animation-name: moverDrone; */
+}
+
+.contAnim img {
+    /* background-color: aqua; */
+    position: absolute;
+    /* top: 0vh; */
+    margin-top: 30px;
+    left: -250px;
+    width: 300px;
+    height: 100px;
+    max-width: 250px;
+    animation-name: moverDrone;
+    animation-duration: 10s;
+    animation-iteration-count: infinite;
+
+}
+
+
+@keyframes moverDrone {
+    0% {}
+
+    50% {
+        left: 50%;
+    }
+
+    100% {
+        left: 110%;
+    }
+}
+
+.pasto {
+    background-color: rgb(5, 169, 5);
+    width: 100vw;
+    height: 4vh;
+}

@@ -27,6 +27,7 @@ router.get("/", async (req, res, next) => {
         weight: el.weight,
         life_span: el.life_span,
         image: el.image,
+        userCreate: true,
         temperaments: el.Temperaments.map((i) => {
           return i.name;
         }).join(", "),
@@ -73,6 +74,7 @@ router.get("/:id", async (req, res, next) => {
         weight: getDataFromDB.weight,
         life_span: getDataFromDB.life_span,
         image: getDataFromDB.image,
+        userCreate: true,
         temperaments: getDataFromDB.Temperaments.map((i) => {
           return i.name;
         }).join(", "),
