@@ -4,6 +4,7 @@ import {
   GET_DOGS_CREATE_USER,
   GET_DOGS_FOR_TEMP,
   GET_DOGS_FOR_BREED,
+  GET_DOG_FOR_ID,
 } from "./types";
 import axios from "axios";
 
@@ -21,7 +22,10 @@ export function getTemperaments() {
   return function (dispatch) {
     return axios.get("http://localhost:3001/api/temperaments/").then((resp) => {
       // console.log("de action ", resp.data);
-      dispatch({ type: GET_TEMPERAMENTS, payload: resp.data });
+      let respu = resp.data.map((el) => {
+        return el.name;
+      });
+      dispatch({ type: GET_TEMPERAMENTS, payload: respu });
     });
   };
 }
@@ -65,7 +69,7 @@ export function getDogsForTemperament(temp) {
 }
 
 export function getByBreed(breed) {
-  console.log("backend ", breed);
+  // console.log("backend ", breed);
   return function (dispatch) {
     return axios
       .get(`http://localhost:3001/api/dogs?name=` + breed)
@@ -73,4 +77,29 @@ export function getByBreed(breed) {
         dispatch({ type: GET_DOGS_FOR_BREED, payload: resp.data });
       });
   };
+}
+
+export function getById(id) {
+  // console.log("backend id= ", id);
+  return function (dispatch) {
+    return axios.get(`http://localhost:3001/api/dogs/` + id).then((resp) => {
+      dispatch({ type: GET_DOG_FOR_ID, payload: resp.data });
+    });
+  };
+}
+
+// _____________________________________________
+// POST /dogs/create
+
+export async function createDog(dog) {
+  var url = dog.image;
+  var r = new RegExp('/^(ftp|http|https)://[^ "]+$/');
+
+  if (!r.test(url)) {
+    dog.image =
+      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR_Z4Vx8DPwA15EgaQlEaVd55HCyaETzoM9l3jF62ikyePqOztNzIRhqKIoAESnD0sJ-sg&usqp=CAU";
+  }
+  console.log(dog);
+
+  return axios.post(`http://localhost:3001/api/dogs/`, dog);
 }

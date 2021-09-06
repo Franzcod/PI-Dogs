@@ -42,6 +42,7 @@
 
 .iconFav {
     font-size: calc(1em + 1vw);
+    color: black;
 }
 
 
@@ -54,7 +55,11 @@
 }
 
 .iconUser {
-    font-size: calc(1em + 0.4vw);
+    font-size: calc(1em + 1vw);
+    /* color: #6633CC; */
+    color: red;
+    /* align-items: center; */
+    margin: auto;
 }
 
 .tooltip .bottom {

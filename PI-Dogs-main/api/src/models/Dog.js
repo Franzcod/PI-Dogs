@@ -12,11 +12,19 @@ module.exports = (sequelize) => {
       type: DataTypes.STRING,
       allowNull: false,
     },
-    height: {
+    height_min: {
       type: DataTypes.STRING,
       allowNull: false,
     },
-    weight: {
+    height_max: {
+      type: DataTypes.STRING,
+      allowNull: false,
+    },
+    weight_min: {
+      type: DataTypes.STRING,
+      allowNull: false,
+    },
+    weight_max: {
       type: DataTypes.STRING,
       allowNull: false,
     },
@@ -29,8 +37,7 @@ module.exports = (sequelize) => {
     },
     image: {
       type: DataTypes.STRING,
-      defaultValue:
-        "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR_Z4Vx8DPwA15EgaQlEaVd55HCyaETzoM9l3jF62ikyePqOztNzIRhqKIoAESnD0sJ-sg&usqp=CAU",
+      allowNull: false,
     },
   });
 };

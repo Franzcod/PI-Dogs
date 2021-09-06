@@ -14,7 +14,7 @@ router.get("/", async (req, res, next) => {
   try {
     let temperament = await Temperament.findAll();
     temperament = temperament.map((el) => {
-      return el.name;
+      return el;
     });
 
     console.log(" Temperamentos traidos de BD ".black.bgBlue);

@@ -1,6 +1,7 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import React, { useState, useEffect } from "react";
 import styles from "./Home.module.css";
+import { Link } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import loadingImg from "../../assets/loadingDog.gif";
 
@@ -79,20 +80,16 @@ const Home = () => {
         break;
       case "weight_min":
         alldogs = alldogs.sort((a, b) => {
-          if (Number(a.weight.split(" ")[0]) > Number(b.weight.split(" ")[0]))
-            return 1;
-          if (Number(a.weight.split(" ")[0]) < Number(b.weight.split(" ")[0]))
-            return -1;
+          if (Number(a.weight_min) > Number(b.weight_min)) return 1;
+          if (Number(a.weight_min) < Number(b.weight_min)) return -1;
           return 0;
         });
         act();
         break;
       case "weight_max":
         alldogs = alldogs.sort((b, a) => {
-          if (Number(a.weight.split(" ")[0]) > Number(b.weight.split(" ")[0]))
-            return 1;
-          if (Number(a.weight.split(" ")[0]) < Number(b.weight.split(" ")[0]))
-            return -1;
+          if (Number(a.weight_max) > Number(b.weight_max)) return 1;
+          if (Number(a.weight_max) < Number(b.weight_max)) return -1;
           return 0;
         });
         act();
@@ -145,6 +142,7 @@ const Home = () => {
       <div className={styles.contInputs}>
         <div className={styles.divBuscador}>
           <input
+            autoComplete="off"
             id="input_1"
             type="text"
             // name="search"
@@ -228,12 +226,21 @@ const Home = () => {
           <div className={styles.loadingCont}>
             <img src={loadingImg} alt="" />
           </div>
-        ) : (
+        ) : alldogs.length ? (
           alldogs.map((el, index) =>
             index >= paginado[0] && index <= paginado[1] && el.id ? (
-              <Target props={el} key={el.id} />
+              <Link
+                key={el.id}
+                data={el}
+                className={styles.link}
+                to={`/details/${el.id}`}
+              >
+                <Target props={el} key={el.id} />
+              </Link>
             ) : null
           )
+        ) : (
+          <p>"No se Crearon perros "</p>
         )}
       </div>
 

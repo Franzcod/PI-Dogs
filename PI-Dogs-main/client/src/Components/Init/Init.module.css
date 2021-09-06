@@ -114,6 +114,13 @@ html {
     } */
 }
 
+@media (min-width: 1200px) {
+    .forma_2 {
+        transform: translate(80vw, 30vh);
+        background-position: center;
+    }
+}
+
 
 
 

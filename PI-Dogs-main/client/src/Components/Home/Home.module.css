@@ -38,8 +38,8 @@
     /* margin-top: 3px; */
     /* font-size: 20px; */
     font-size: calc(1em + 0.5vw);
-    background-color: white;
-
+    background-color: rgba(228, 225, 225, 0.692);
+    border: 1px solid #6633CC;
     padding-left: 10px;
     border-radius: 8px;
 }
@@ -85,4 +85,9 @@
     color: rgba(138, 93, 183, 1);
     border-radius: 16px;
     cursor: pointer;
+}
+
+
+.link {
+    text-decoration: none;
 }

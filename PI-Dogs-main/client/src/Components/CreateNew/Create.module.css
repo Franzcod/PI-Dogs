@@ -1,0 +1,125 @@
+@import url('https://fonts.googleapis.com/css2?family=Yanone+Kaffeesatz:wght@500&display=swap');
+
+.contRey {
+    padding-top: 10vh;
+    background-color: rgba(248, 244, 244, 0.61);
+    width: 100vw;
+    height: 70vh;
+}
+
+
+.caja {
+    margin: auto;
+    width: 70vw;
+    max-width: 750px;
+    height: fit-content;
+    background-color: rgb(235, 229, 229);
+    display: flex;
+    flex-direction: row;
+    /* border-bottom: 10px solid black; */
+    border-radius: 10px;
+    -webkit-box-shadow: inset -1px 3px 8px 5px #1f88ff00, 2px 5px 16px 0px #0B325E, 5px 5px 15px 5px rgba(0, 0, 0, 0);
+    box-shadow: inset -1px 3px 8px 5px #1f88ff00, 2px 5px 16px 0px #0B325E, 5px 5px 15px 5px rgba(0, 0, 0, 0);
+}
+
+.form {
+    width: 60%;
+    margin: 0 auto;
+    height: fit-content;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+/* .input {
+    margin: 30px auto 30px;
+    font-size: calc(1em + 2vw);
+    border: none;
+    border-radius: 10px;
+    padding: 3px 3px 3px 10px;
+}
+
+.input:focus {
+    outline-color: transparent;
+    outline: none;
+} */
+
+.compInput {
+    display: flex;
+    flex-direction: column;
+    margin: 5px;
+    font-weight: 600;
+    width: 100%;
+}
+
+.compInput .label {
+    display: flex;
+    justify-content: flex-start;
+}
+
+.compInput .label p {
+    color: black;
+    margin: 5px;
+}
+
+input {
+    border: none;
+    margin: 5px;
+    border-radius: 8px;
+    padding: 5px;
+
+}
+
+
+@media screen and (-webkit-min-device-pixel-ratio:0) {
+
+    input[type="color"],
+    input[type="date"],
+    input[type="datetime"],
+    input[type="datetime-local"],
+    input[type="email"],
+    input[type="month"],
+    input[type="number"],
+    input[type="password"],
+    input[type="search"],
+    input[type="tel"],
+    input[type="text"],
+    input[type="time"],
+    input[type="url"],
+    input[type="week"],
+    select:focus,
+    textarea:focus,
+    input:focus {
+        font-size: 16px;
+    }
+}
+
+.alturas {
+    display: flex;
+    flex-direction: row;
+    width: 50%;
+}
+
+.pesos {
+    display: flex;
+    flex-direction: row;
+    width: 50%;
+    /* overflow-x: hidden; */
+}
+
+
+.botonSave button {
+    border: none;
+    cursor: pointer;
+    width: 25%;
+    height: 30px;
+    color: #fff;
+    background-color: #733ca9;
+    margin: 30px auto 20px auto;
+    border-radius: 10px;
+    align-items: center;
+    padding: 5px;
+    display: flex;
+    justify-content: space-around;
+    font-weight: 500;
+}

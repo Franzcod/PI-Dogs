@@ -23,8 +23,10 @@ router.get("/", async (req, res, next) => {
       return {
         id: el.id,
         name: el.name,
-        height: el.height,
-        weight: el.weight,
+        height_min: el.height_min,
+        height_max: el.height_max,
+        weight_min: el.weight_min,
+        weight_max: el.weight_max,
         life_span: el.life_span,
         image: el.image,
         userCreate: true,
@@ -70,8 +72,10 @@ router.get("/:id", async (req, res, next) => {
       res.json({
         id: getDataFromDB.id,
         name: getDataFromDB.name,
-        height: getDataFromDB.height,
-        weight: getDataFromDB.weight,
+        height_min: getDataFromDB.height_min,
+        height_max: getDataFromDB.height_max,
+        weight_min: getDataFromDB.weight_min,
+        weight_max: getDataFromDB.weight_max,
         life_span: getDataFromDB.life_span,
         image: getDataFromDB.image,
         userCreate: true,
@@ -92,21 +96,36 @@ router.get("/:id", async (req, res, next) => {
 //  POST /________________________________________________________________
 
 router.post("/", async (req, res, next) => {
-  const { name, height, weight, life_span, image, temperaments } = req.body;
+  const {
+    name,
+    height_min,
+    height_max,
+    weight_min,
+    weight_max,
+    life_span,
+    image,
+    temperaments,
+  } = req.body;
   try {
     let dogCreated = await Dog.create({
       name,
-      height,
-      weight,
+      height_min,
+      height_max,
+      weight_min,
+      weight_max,
       life_span,
       image,
     });
+    // console.log(temperaments);
+    // let temperaments = temperaments.split(", ");
+    // console.log(temperaments);
+
     if (temperaments.length) {
       temperaments.map(async (tem) => {
         try {
-          let temper = await Temperament.findOne({ where: { name: tem } });
+          let temper = await Temperament.findOrCreate({ where: { name: tem } });
           // console.log(temper.dataValues.name);
-          dogCreated.addTemperament(temper);
+          dogCreated.addTemperament(temper[0]);
           // res.send(dogCreated);
           console.log("perro cargado");
         } catch (err) {

@@ -19,3 +19,8 @@
     font-weight: 500;
     color: #fff;
 }
+
+.active p {
+    /* color: red; */
+    border-bottom: 3px white solid;
+}

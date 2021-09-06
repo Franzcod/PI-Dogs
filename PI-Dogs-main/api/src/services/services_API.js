@@ -11,8 +11,10 @@ async function getAllDataAPI() {
     return {
       id: el.id,
       name: el.name,
-      height: el.height.metric,
-      weight: el.weight.metric,
+      height_min: el.height.metric.split(" - ")[0],
+      height_max: el.height.metric.split(" - ")[1],
+      weight_min: el.weight.metric.split(" - ")[0],
+      weight_max: el.weight.metric.split(" - ")[1],
       life_span: el.life_span,
       image: el.image.url,
       userCreate: false,
