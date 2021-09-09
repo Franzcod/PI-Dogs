@@ -12,8 +12,6 @@ const initialState = {
   dogs: [],
   temteraments: [],
   dog: [],
-  // pages: [0, 7],
-  // pag: {pages: [], n: 1, max: [], items: 9, render: true, c: 0},
 };
 
 export default function rootReducer(state = initialState, action) {

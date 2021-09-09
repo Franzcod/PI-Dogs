@@ -1,6 +1,6 @@
 .divRey {
 
-    margin-top: calc(1em + 1vw);
+    margin-top: calc(1em + 0.2vw);
 }
 
 .contInputs {
@@ -57,13 +57,16 @@
     height: fit-content;
     padding: 3px 0 3px 0;
     display: flex;
+    flex-wrap: wrap;
     justify-content: center;
+    max-height: 50px;
+    margin: 20px;
 }
 
 .contFiltros select {
     /* padding: 5px; */
     /* max-width: 150px; */
-    font-size: calc(1em + 0.4vw);
+    font-size: calc(1em + 0.2vw);
     margin: 10px 10px;
     border: none;
     background-color: rgb(166, 140, 193);
@@ -78,7 +81,9 @@
 
 
 .arowButton {
-    font-size: calc(1em + 2vw);
+    /* font-size: calc(1em + 3vw); */
+    font-size: calc(1em + 1vw);
+
     margin: 10px 10px;
     border: none;
     /* background-color: rgba(138, 93, 183, 1); */
@@ -90,4 +95,15 @@
 
 .link {
     text-decoration: none;
+}
+
+.tacho {
+    cursor: pointer;
+    background-color: rgb(226, 70, 70);
+    height: 25px;
+    border-radius: 0 0 6px 6px;
+    transform: translateY(-25px);
+    z-index: -100;
+    color: #fff;
+    align-items: center;
 }

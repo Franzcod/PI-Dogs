@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import styles from "./Nav.module.css";
 import gengar from "../../assets/icon_dog.png";
+import { NavLink } from "react-router-dom";
 // import '../fecha.js'
 
 export default function Titulo() {
@@ -36,7 +37,9 @@ export default function Titulo() {
 
   return (
     <div className={styles.titApp}>
-      <h3>Dogcity</h3>
+      <NavLink to="/home" style={{ textDecoration: "none" }}>
+        <h3>Dogcity</h3>
+      </NavLink>
       <img
         // src="https://cdn.pixabay.com/photo/2016/05/20/20/20/weather-1405870_640.png"
         src={gengar}

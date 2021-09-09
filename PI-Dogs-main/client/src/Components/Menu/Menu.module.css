@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Yanone+Kaffeesatz:wght@500&display=swap');
 
 .cont {
-    margin-top: calc(2em + 6vw);
+    margin-top: calc(1em + 6vw);
     display: flex;
     flex-direction: row;
     justify-content: flex-start;
@@ -23,4 +23,12 @@
 .active p {
     /* color: red; */
     border-bottom: 3px white solid;
+}
+
+
+@media (min-width: 1100px) {
+    .cont {
+        margin-top: calc(1em + 5.5vw);
+
+    }
 }

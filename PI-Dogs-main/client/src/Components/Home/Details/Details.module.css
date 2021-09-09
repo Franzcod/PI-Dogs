@@ -10,7 +10,7 @@
 
 .caja {
     margin: auto;
-    width: 70vw;
+    width: 80vw;
     height: 50vh;
     background-color: rgb(192, 189, 189);
     display: flex;
@@ -75,7 +75,7 @@
 }
 
 .caja .contInfo .lifeSpan {
-    margin-top: 10px;
+    margin-top: 20px;
     /* margin-bottom: 20px; */
     display: flex;
     justify-content: center;

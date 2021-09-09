@@ -1,10 +1,21 @@
 @import url('https://fonts.googleapis.com/css2?family=Yanone+Kaffeesatz:wght@500&display=swap');
 
 .contRey {
-    padding-top: 10vh;
+    padding-top: 7vh;
     background-color: rgba(248, 244, 244, 0.61);
     width: 100vw;
-    height: 70vh;
+    height: 100vh;
+}
+
+
+.contRey img {
+    width: 25vw;
+    min-width: 150px;
+    max-width: 250px;
+    margin-top: -50px;
+    margin-bottom: -5px;
+
+
 }
 
 
@@ -20,6 +31,7 @@
     border-radius: 10px;
     -webkit-box-shadow: inset -1px 3px 8px 5px #1f88ff00, 2px 5px 16px 0px #0B325E, 5px 5px 15px 5px rgba(0, 0, 0, 0);
     box-shadow: inset -1px 3px 8px 5px #1f88ff00, 2px 5px 16px 0px #0B325E, 5px 5px 15px 5px rgba(0, 0, 0, 0);
+
 }
 
 .form {
@@ -122,4 +134,19 @@ input {
     display: flex;
     justify-content: space-around;
     font-weight: 500;
+}
+
+.cartel_none button {
+    background-color: red;
+
+    margin-bottom: 20px;
+    padding: 5px;
+    border: none;
+    border-radius: 10px;
+    color: #fff;
+}
+
+.cartel_ok {
+    background-color: greenyellow;
+    display: none;
 }

@@ -92,14 +92,20 @@ export function getById(id) {
 // POST /dogs/create
 
 export async function createDog(dog) {
-  var url = dog.image;
-  var r = new RegExp('/^(ftp|http|https)://[^ "]+$/');
-
-  if (!r.test(url)) {
+  if (dog.image === "") {
     dog.image =
-      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR_Z4Vx8DPwA15EgaQlEaVd55HCyaETzoM9l3jF62ikyePqOztNzIRhqKIoAESnD0sJ-sg&usqp=CAU";
+      "https://i.pinimg.com/originals/a1/78/a0/a178a016a8d574e9a243de758d130037.png";
   }
   console.log(dog);
 
   return axios.post(`http://localhost:3001/api/dogs/`, dog);
+}
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////
+//DELETE
+
+export async function deleteDog(id, dispatch) {
+  return axios.delete(`http://localhost:3001/api/dogs/` + id).then((resp) => {
+    dispatch({ type: GET_DOGS, payload: resp.data });
+  });
 }

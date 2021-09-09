@@ -1,10 +1,10 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import React, { useState, useEffect } from "react";
 import styles from "./Home.module.css";
-import { Link } from "react-router-dom";
+// import { Link } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import loadingImg from "../../assets/loadingDog.gif";
-
+// import { MdDeleteForever } from "react-icons/md";
 import Target from "./Targets/Target";
 
 import {
@@ -14,6 +14,7 @@ import {
   getDogsForApi,
   getDogsForTemperament,
   getByBreed,
+  deleteDog,
 } from "../../Actions/index";
 
 import {
@@ -41,7 +42,14 @@ const Home = () => {
 
     setTimeout(() => {
       setLoading(false);
-    }, 1000);
+    }, 1500);
+  }
+
+  function deleteAndBack(id) {
+    // console.log(id);
+
+    deleteDog(id, dispatch);
+    act();
   }
 
   function handlerClick(e) {
@@ -229,14 +237,17 @@ const Home = () => {
         ) : alldogs.length ? (
           alldogs.map((el, index) =>
             index >= paginado[0] && index <= paginado[1] && el.id ? (
-              <Link
-                key={el.id}
-                data={el}
-                className={styles.link}
-                to={`/details/${el.id}`}
-              >
+              el.userCreate === true ? (
+                <div key={el.id}>
+                  <Target props={el} key={el.id} />
+                  <div className={styles.tacho}>
+                    {/*<MdDeleteForever onClick={() => deleteAndBack(el.id)} />*/}
+                    <span onClick={() => deleteAndBack(el.id)}>Delete</span>
+                  </div>
+                </div>
+              ) : (
                 <Target props={el} key={el.id} />
-              </Link>
+              )
             ) : null
           )
         ) : (

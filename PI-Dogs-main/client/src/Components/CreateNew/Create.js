@@ -3,19 +3,24 @@ import styles from "./Create.module.css";
 import { FiSave } from "react-icons/fi";
 // import { useDispatch, useSelector } from "react-redux";
 import { createDog } from "../../Actions";
-import { Redirect } from "react-router-dom";
+// import { Redirect } from "react-router-dom";
+import { useHistory } from "react-router-dom";
+import dog from "./../../assets/asoma.png";
 
 const Create = () => {
   function validate(data) {
     const errors = {};
-    if (!data.name) errors.name = "You must enter a breed";
-    if (!data.height_min) errors.height = "You must enter a minimum height";
-    if (!data.height_max) errors.height = "You must enter a maximum height";
-    if (!data.weight_min) errors.weight = "You must enter a minimum weight";
-    if (!data.weight_max) errors.weight = "You must enter a maximum weight";
+    if (!data.name) errors.name = "You must enter a breed or name";
+    if (!data.height_min) errors.height_min = "You must enter a minimum height";
+    if (!data.height_max) errors.height_max = "You must enter a maximum height";
+    if (!data.weight_min) errors.weight_min = "You must enter a minimum weight";
+    if (!data.weight_max) errors.weight_max = "You must enter a maximum weight";
+    if (!data.life_span) errors.life_span = "You must enter a life span";
 
     return errors;
   }
+
+  const history = useHistory();
 
   const [formData, setFormData] = React.useState({
     name: "",
@@ -29,12 +34,13 @@ const Create = () => {
   });
 
   const [errors, setErrors] = React.useState({});
+  const [error_inputs, setError_inputs] = React.useState(false);
 
   function handleChange(e) {
     if (e.target.name === "temperaments") {
       setFormData((prevData) => {
-        let txT = e.target.value.split(", ");
-        console.log(txT);
+        let txT = e.target.value.split(",");
+        // console.log(txT);
         const state = {
           ...prevData,
           [e.target.name]: txT,
@@ -63,12 +69,21 @@ const Create = () => {
   }
 
   function handleSubmit(e) {
-    e.preventDefault(); //                 <----------------------------prevent default!!!
-
-    if (Object.values(errors).length > 0)
-      alert("Completa la informacion solicitada");
-    else {
+    e.preventDefault(); // <----------------------------prevent default!!!
+    if (
+      !formData.name.length ||
+      !formData.life_span.length ||
+      !formData.weight_min.length ||
+      !formData.weight_max.length ||
+      !formData.height_min.length ||
+      !formData.height_max.length
+    ) {
+      setError_inputs(true);
+      alert("Campos obliatorios vacios vacios");
+    } else {
+      setError_inputs(false);
       // console.log(formData);
+
       createDog(formData);
 
       setFormData({
@@ -81,15 +96,19 @@ const Create = () => {
         image: "",
         temperaments: "",
       });
+      history.goBack();
     }
-  }
-
-  function volver() {
-    <Redirect push to="/somewhere/else" />;
   }
 
   return (
     <div className={styles.contRey}>
+      <div
+        id="cartel"
+        className={error_inputs ? styles.cartel_none : styles.cartel_ok}
+      >
+        <button>Campos obligatorios vacios!</button>
+      </div>
+      <img src={dog} alt=""></img>
       <div className={styles.caja}>
         <form id="form_id" onSubmit={handleSubmit} className={styles.form}>
           <FormItem
@@ -105,14 +124,14 @@ const Create = () => {
               name="height_min"
               value={formData.height_min}
               handleChange={handleChange}
-              error={errors.height}
+              error={errors.height_min}
             />
             <FormItem
               label="Height Max:"
               name="height_max"
               value={formData.height_max}
               handleChange={handleChange}
-              error={errors.height}
+              error={errors.height_max}
             />
           </div>
           <div className={styles.pesos}>
@@ -121,14 +140,14 @@ const Create = () => {
               name="weight_min"
               value={formData.weight_min}
               handleChange={handleChange}
-              error={errors.weight}
+              error={errors.weight_min}
             />
             <FormItem
               label="Weight Max:"
               name="weight_max"
               value={formData.weight_max}
               handleChange={handleChange}
-              error={errors.weight}
+              error={errors.weight_max}
             />
           </div>
           <FormItem
@@ -136,7 +155,7 @@ const Create = () => {
             name="life_span"
             value={formData.life_span}
             handleChange={handleChange}
-            error=""
+            error={errors.life_span}
           />
 
           <FormItem
@@ -145,6 +164,7 @@ const Create = () => {
             value={formData.image}
             handleChange={handleChange}
             error=""
+            optional="Optional"
           />
 
           <FormItem
@@ -153,15 +173,11 @@ const Create = () => {
             value={formData.temperaments}
             handleChange={handleChange}
             error=""
+            optional="Optional"
           />
 
           <div className={styles.botonSave}>
-            <button
-              type="submit"
-              onClick={() => {
-                volver();
-              }}
-            >
+            <button type="submit">
               <FiSave />
               SAVE
             </button>
@@ -172,7 +188,7 @@ const Create = () => {
   );
 };
 
-function FormItem({ label, name, value, handleChange, error }) {
+function FormItem({ label, name, value, handleChange, error, optional }) {
   return (
     <div className={styles.compInput}>
       <div className={styles.label}>
@@ -180,12 +196,15 @@ function FormItem({ label, name, value, handleChange, error }) {
       </div>
 
       <input
+        placeholder={optional}
         autoComplete="off"
         name={name}
         value={value}
         onChange={handleChange}
       />
-      <span style={{ color: "red", fontWeight: 700 }}>{error}</span>
+      <span style={{ color: "red", fontWeight: 500, fontSize: "10px" }}>
+        {error}
+      </span>
     </div>
   );
 }

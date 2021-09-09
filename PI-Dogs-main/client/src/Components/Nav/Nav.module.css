@@ -57,7 +57,7 @@
     font-size: 3vh;
 }
 
-@media (max-width: 650px) {
+@media (max-width: 850px) {
     .titApp {
         height: 5vh;
     }

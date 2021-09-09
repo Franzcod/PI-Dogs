@@ -19,13 +19,7 @@ export default function PageOptions() {
       >
         <p>Create New</p>{" "}
       </NavLink>
-      <NavLink
-        activeClassName={styles.active}
-        style={{ textDecoration: "none" }}
-        to="/game"
-      >
-        <p>Game</p>{" "}
-      </NavLink>
+
       <NavLink
         activeClassName={styles.active}
         style={{ textDecoration: "none" }}

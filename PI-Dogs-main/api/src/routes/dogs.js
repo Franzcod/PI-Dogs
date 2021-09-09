@@ -39,11 +39,11 @@ router.get("/", async (req, res, next) => {
     let allData = getDataFromDB.concat(geDataForApi);
 
     if (name) {
-      console.log(
-        " Buscando coincidencias con la palabra: ".black.bgBlue +
-          name.red.bgBlue +
-          " "
-      );
+      // console.log(
+      //   " Buscando coincidencias con la palabra: ".black.bgBlue +
+      //     name.red.bgBlue +
+      //     " "
+      // );
       let resp = allData.filter((el) =>
         el.name.toLowerCase().includes(name.toLowerCase())
       ); // ==> trae todos los q tengan la palabra buscada
@@ -86,6 +86,9 @@ router.get("/:id", async (req, res, next) => {
     } else {
       let geDataForApi = await services.getAllDataAPI();
       let resp = geDataForApi.find((el) => el.id.toString() === id.toString());
+      if (resp === undefined) {
+        res.status(404).json("Id no coincide con un perro exstente");
+      }
       res.send(resp);
     }
   } catch (error) {
@@ -116,9 +119,6 @@ router.post("/", async (req, res, next) => {
       life_span,
       image,
     });
-    // console.log(temperaments);
-    // let temperaments = temperaments.split(", ");
-    // console.log(temperaments);
 
     if (temperaments.length) {
       temperaments.map(async (tem) => {
@@ -127,7 +127,7 @@ router.post("/", async (req, res, next) => {
           // console.log(temper.dataValues.name);
           dogCreated.addTemperament(temper[0]);
           // res.send(dogCreated);
-          console.log("perro cargado");
+          console.log("Perro Cargado");
         } catch (err) {
           console.log(err);
         }
@@ -136,6 +136,42 @@ router.post("/", async (req, res, next) => {
     res.send("Perro cargado");
   } catch (error) {
     next(error);
+  }
+});
+//////////////////////////////////////////////////////////////////////////////////
+//DELETE
+
+router.delete("/:id", async (req, res, next) => {
+  const { id } = req.params;
+  try {
+    Dog.destroy({ where: { id: id } });
+    let geDataForApi = await services.getAllDataAPI();
+    let getDataFromDB = await Dog.findAll({
+      include: Temperament,
+    });
+    // FORMATEO PARA Q DESDE API Y DESDE DB LLEGUEN AL FRONT IGUALES
+    getDataFromDB = getDataFromDB.map((el) => {
+      return {
+        id: el.id,
+        name: el.name,
+        height_min: el.height_min,
+        height_max: el.height_max,
+        weight_min: el.weight_min,
+        weight_max: el.weight_max,
+        life_span: el.life_span,
+        image: el.image,
+        userCreate: true,
+        temperaments: el.Temperaments.map((i) => {
+          return i.name;
+        }).join(", "),
+      };
+    });
+    // resp de API y de DB juntas
+    let allData = getDataFromDB.concat(geDataForApi);
+    console.log("Perro ELIMINADO de DB".bgRed);
+    res.send(allData);
+  } catch (err) {
+    next(err);
   }
 });
 

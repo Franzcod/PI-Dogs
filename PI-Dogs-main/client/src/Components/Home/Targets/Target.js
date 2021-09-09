@@ -1,24 +1,36 @@
 import React from "react";
 import style from "./Target.module.css";
 import { MdFavoriteBorder } from "react-icons/md"; // ---MdFavorite
-import { FaUserEdit } from "react-icons/fa";
-import { MdDeleteForever } from "react-icons/md";
+
+import { Link } from "react-router-dom";
+
 import loadingImg from "../../../assets/loadingDog_2.gif";
+
 const Target = ({ props }) => {
   // console.log("de target: ", props.id);
-
-  function clickeado() {
-    console.log("click");
-  }
 
   return (
     <div key={props.id} className={style.master}>
       {props.image ? (
-        <img src={props.image} alt="" />
+        <Link
+          key={props.id}
+          // className={styles.link}
+          to={`/details/${props.id}`}
+        >
+          <div>
+            <img src={props.image} alt="" />
+          </div>
+        </Link>
       ) : (
-        <div>
-          <img src={loadingImg} alt="" />
-        </div>
+        <Link
+          key={props.id}
+          // className={styles.link}
+          to={`/details/${props.id}`}
+        >
+          <div>
+            <img src={loadingImg} alt="" />
+          </div>
+        </Link>
       )}
 
       <div className={style.cardDatos}>
@@ -37,14 +49,9 @@ const Target = ({ props }) => {
             {props.userCreate ? (
               <div className={style.tooltip}>
                 {/*<FaUserEdit className={style.iconUser} />*/}
-                <MdDeleteForever
-                  className={style.iconUser}
-                  onClick={() => {
-                    clickeado();
-                  }}
-                />
+
                 <div className={style.bottom}>
-                  <h5>Precionar para eliminar de Base de Datos</h5>
+                  <h5>Presionar para eliminar de Base de Datos</h5>
                 </div>
               </div>
             ) : null}

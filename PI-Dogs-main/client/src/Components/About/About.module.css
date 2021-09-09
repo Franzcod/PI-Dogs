@@ -1,4 +1,8 @@
-.contRey {}
+@import url('https://fonts.googleapis.com/css2?family=Yanone+Kaffeesatz:wght@500&display=swap');
+
+.contRey {
+    height: fit-content;
+}
 
 
 
@@ -43,7 +47,82 @@
 }
 
 .pasto {
-    background-color: rgb(5, 169, 5);
+    background-color: #05a905;
+
     width: 100vw;
     height: 4vh;
+}
+
+.pasto_2 {
+    background-color: rgb(5, 169, 5);
+    background: linear-gradient(0deg, rgba(255, 255, 255, 1) 0%, rgba(5, 169, 5, 1) 100%);
+    width: 100vw;
+    height: 2vh;
+}
+
+
+.contMayor {
+    width: 100vw;
+    height: 80vh;
+    background-color: rgb(255, 255, 255);
+    margin-top: 50px;
+
+    /* margin-bottom: 200px; */
+}
+
+.contMayor img {
+    width: 30vw;
+    min-width: 100px;
+    max-width: 280px;
+    /* margin-top: 56px; */
+    /* margin-bottom: -20px; */
+
+}
+
+.contMayor .caja {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 50%;
+    height: 500px;
+    position: absolute;
+    align-items: center;
+    margin: auto;
+    /* margin-top: 0px; */
+    left: 22%;
+    background-color: rgba(214, 195, 226, 0.13);
+    border-radius: 10px;
+    -webkit-box-shadow: inset -1px 3px 8px 5px #1f88ff00, 2px 5px 16px 0px #0B325E, 5px 5px 15px 5px rgba(0, 0, 0, 0);
+    box-shadow: inset -1px 3px 8px 5px #1f88ff00, 2px 5px 16px 0px #0B325E, 5px 5px 15px 5px rgba(0, 0, 0, 0);
+    /* -webkit-box-shadow: inset -1px 3px 8px 5px #1f88ff00, 2px 5px 16px 0px #0B325E, 5px 5px 15px 5px rgba(0, 0, 0, 0); */
+    /* box-shadow: 5px 5px 5px black; */
+    /* animation-iteration-count: infinite; inset -1px 3px 8px 5px #1f88ff00,2px 5px 16px 0px #0B325E,*/
+}
+
+
+.caja h2 {
+    font-size: calc(1em + 2vw);
+    color: #733ca9;
+    font-family: 'Yanone Kaffeesatz', sans-serif;
+    letter-spacing: 6px;
+    margin: 10px 20px;
+}
+
+.texto_1 {
+    padding: 10px;
+    margin: 0px 20px;
+    font-size: calc(1em + 0.8vw);
+}
+
+.texto_2 {
+    display: flex;
+    justify-content: space-around;
+    padding: 10px;
+    margin: 0px 20px;
+
+}
+
+.texto_2 a i {
+    font-size: calc(1em + 4vw);
+    color: black;
 }

@@ -6,6 +6,8 @@ import { useSelector, useDispatch } from "react-redux";
 import { getById } from "../../../Actions/index";
 import loadingImg from "./dog_run.gif";
 import { FcWikipedia } from "react-icons/fc";
+// import { useHistory } from "react-router-dom";
+// import { MdDeleteForever } from "react-icons/md";
 
 const Details = () => {
   const dispatch = useDispatch();
@@ -14,6 +16,8 @@ const Details = () => {
   const [loading, setLoading] = useState(true);
 
   let dogData = useSelector((state) => state.dog);
+
+  // const history = useHistory();
 
   useEffect(() => {
     dispatch(getById(id));
@@ -25,13 +29,23 @@ const Details = () => {
 
   return (
     <div className={styles.contRey}>
-      {!loading ? (
+      {loading ? (
+        <div className={styles.caja}>
+          <div className={styles.contImg_loading}>
+            <img alt="" src={loadingImg} />
+          </div>
+          <div className={styles.cargandoDiv}>
+            <div>Cargando data...</div>
+          </div>
+        </div>
+      ) : (
         <div className={styles.caja}>
           <div className={styles.contImg}>
             <img alt="" src={dogData.image} />
           </div>
           <div className={styles.contInfo}>
             <div className={styles.title}>{dogData.name}</div>
+
             <div className={styles.medidas}>
               <div className={styles.lifeSpan}>
                 <div>
@@ -56,21 +70,11 @@ const Details = () => {
 
             <div className={styles.enlace}>
               <a href={`https://es.wikipedia.org/wiki/${dogData.name}`}>
-                <div>Buscar mas informacion en Wikipedia</div>
                 <i className={styles.icono}>
                   <FcWikipedia />
                 </i>
               </a>
             </div>
-          </div>
-        </div>
-      ) : (
-        <div className={styles.caja}>
-          <div className={styles.contImg_loading}>
-            <img alt="" src={loadingImg} />
-          </div>
-          <div className={styles.cargandoDiv}>
-            <div>Cargando data...</div>
           </div>
         </div>
       )}
