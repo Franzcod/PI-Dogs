@@ -170,6 +170,7 @@ router.delete("/:id", async (req, res, next) => {
     let allData = getDataFromDB.concat(geDataForApi);
     console.log("Perro ELIMINADO de DB".bgRed);
     res.send(allData);
+    // res.redirect("/");
   } catch (err) {
     next(err);
   }
