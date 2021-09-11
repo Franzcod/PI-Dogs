@@ -22,7 +22,7 @@
 }
 
 .caja .contImg {
-    border-radius: 10px;
+    border-radius: 10px 0 0 10px;
     width: 50%;
     height: 100%;
     background-color: aquamarine;

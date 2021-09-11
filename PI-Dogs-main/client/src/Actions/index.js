@@ -96,7 +96,7 @@ export async function createDog(dog) {
     dog.image =
       "https://i.pinimg.com/originals/a1/78/a0/a178a016a8d574e9a243de758d130037.png";
   }
-  console.log(dog);
+  // console.log(dog);
 
   return axios.post(`http://localhost:3001/api/dogs/`, dog);
 }
