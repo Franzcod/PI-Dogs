@@ -40,7 +40,7 @@
     font-size: calc(1em + 0.5vw);
     background-color: rgba(228, 225, 225, 0.692);
     border: 1px solid #6633CC;
-    padding-left: 10px;
+    padding: 5px 5px 5px 10px;
     border-radius: 8px;
 }
 

@@ -23,6 +23,14 @@ export default function PageOptions() {
       <NavLink
         activeClassName={styles.active}
         style={{ textDecoration: "none" }}
+        to="/favorites"
+      >
+        <p>Favorites</p>{" "}
+      </NavLink>
+
+      <NavLink
+        activeClassName={styles.active}
+        style={{ textDecoration: "none" }}
         to="/about"
       >
         <p>About</p>{" "}

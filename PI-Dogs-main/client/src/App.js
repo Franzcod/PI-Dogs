@@ -6,7 +6,7 @@ import Menu from "./Components/Menu/Menu";
 import Home from "./Components/Home/Home";
 import About from "./Components/About/About";
 import Create from "./Components/CreateNew/Create";
-
+import Favorites from "./Components/Favorites/Favorites";
 import Details from "./Components/Home/Details/Details";
 
 function App() {
@@ -20,12 +20,14 @@ function App() {
         <Route path="/create" component={Menu} />
         <Route path="/game" component={Menu} />
         <Route path="/about" component={Menu} />
+        <Route path="/favorites" component={Menu} />
+
         {/*}<Route path="/details" component={Menu} />*/}
 
         <Route path="/home" component={Home} />
         <Route path="/about" component={About} />
         <Route path="/create" component={Create} />
-
+        <Route path="/favorites" component={Favorites} />
         <Route path="/details/:id" component={Details} />
       </div>
     </BrowserRouter>

@@ -3,6 +3,13 @@ import style from "./About.module.css";
 import dog_run from "./banda.gif";
 import dog from "./../../assets/asoma_3.png";
 import { FaLinkedin, FaGithubSquare } from "react-icons/fa";
+import {
+  SiCss3,
+  SiJavascript,
+  SiPostgresql,
+  SiReact,
+  SiRedux,
+} from "react-icons/si";
 // import { RiFileUserLine } from "react-icons/ri";
 // import { Link } from "react-router-dom";
 
@@ -33,6 +40,17 @@ const About = () => {
                 <FaGithubSquare />
               </i>
             </a>
+          </div>
+          <div className={style.texto_3}>
+            <div className={style.tit}>Tecnologias:</div>
+            <div className={style.icons}>
+              <SiCss3 />
+
+              <SiJavascript />
+              <SiReact />
+              <SiPostgresql />
+              <SiRedux />
+            </div>
           </div>
 
           <img src={dog} alt=""></img>

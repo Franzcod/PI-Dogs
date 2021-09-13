@@ -15,6 +15,7 @@ import {
   getDogsForTemperament,
   getByBreed,
   deleteDog,
+  delete_Favorites,
 } from "../../Actions/index";
 
 import {
@@ -42,13 +43,13 @@ const Home = () => {
 
     setTimeout(() => {
       setLoading(false);
-    }, 1500);
+    }, 2000);
   }
 
   function deleteAndBack(id) {
     // console.log(id);
-
     deleteDog(id, dispatch);
+    dispatch(delete_Favorites(id));
     act();
   }
 
@@ -142,7 +143,7 @@ const Home = () => {
     //para q se vea el gif de loading
     setTimeout(() => {
       setLoading(false);
-    }, 1500);
+    }, 2000);
   }, []);
 
   return (
@@ -251,7 +252,7 @@ const Home = () => {
             ) : null
           )
         ) : (
-          <p>"No se Crearon perros "</p>
+          <p>" Error de conexion "</p>
         )}
       </div>
 

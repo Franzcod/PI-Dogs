@@ -1,10 +1,10 @@
-import React, { useState } from "react";
+import React from "react";
 import style from "./Target.module.css";
-import { MdFavoriteBorder, MdFavorite } from "react-icons/md"; // --rite
-import { useDispatch } from "react-redux";
 
+import { useDispatch } from "react-redux";
+import { RiDeleteBin6Line } from "react-icons/ri";
 import { Link } from "react-router-dom";
-import { isFavorite } from "../../../Actions/index";
+import { delete_Favorites } from "../../../Actions/index";
 
 import loadingImg from "../../../assets/loadingDog_2.gif";
 
@@ -12,11 +12,10 @@ const Target = ({ props }) => {
   // console.log("de target: ", props.id);
 
   const dispatch = useDispatch();
-  const [favoritoIcon, setFavoritoIcon] = useState(false);
 
   function favoriteado(id) {
-    setFavoritoIcon(!favoritoIcon);
-    dispatch(isFavorite(id));
+    // setFavoritoIcon(!favoritoIcon);
+    dispatch(delete_Favorites(props.id));
   }
 
   return (
@@ -48,17 +47,10 @@ const Target = ({ props }) => {
           <div className={style.cardNombre}>
             <p>{props.name}</p>
           </div>
-          {favoritoIcon ? (
-            <MdFavorite
-              className={style.iconFav}
-              onClick={() => favoriteado(props.id)}
-            />
-          ) : (
-            <MdFavoriteBorder
-              className={style.iconFav}
-              onClick={() => favoriteado(props.id)}
-            />
-          )}
+          <RiDeleteBin6Line
+            className={style.iconFav_delete}
+            onClick={() => favoriteado(props.id)}
+          />
         </div>
         <div className={style.datos}>
           <div className={style.pesoAndIcon}>

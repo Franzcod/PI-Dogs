@@ -13,6 +13,7 @@
     position: fixed;
     z-index: 10;
     background-color: white;
+    /* border-bottom: 1.5px solid #733ca9; */
 }
 
 .titApp h3 {

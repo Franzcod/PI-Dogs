@@ -5,6 +5,9 @@ import {
   GET_DOGS_FOR_TEMP,
   GET_DOGS_FOR_BREED,
   GET_DOG_FOR_ID,
+  IS_FAVORITE,
+  GET_FAVORITES,
+  DELETE_FAVORITES,
 } from "./types";
 import axios from "axios";
 
@@ -108,4 +111,31 @@ export async function deleteDog(id, dispatch) {
   return axios.delete(`http://localhost:3001/api/dogs/` + id).then((resp) => {
     dispatch({ type: GET_DOGS, payload: resp.data });
   });
+}
+
+export function get_Favorites() {
+  return (dispatch) => {
+    dispatch({ type: GET_FAVORITES });
+  };
+}
+
+// export async function isFavorite(id) {
+//   return axios.delete(`http://localhost:3001/api/dogs/` + id).then((resp) => {
+//     dispatch({ type: IS_FAVORITE, payload: resp.data });
+//   });
+// }
+export function isFavorite(id) {
+  // console.log("backend id= ", id);
+  return function (dispatch) {
+    return axios.get(`http://localhost:3001/api/dogs/` + id).then((resp) => {
+      // console.log("action ", resp.data);
+      dispatch({ type: IS_FAVORITE, payload: resp.data });
+    });
+  };
+}
+
+export function delete_Favorites(id) {
+  return (dispatch) => {
+    dispatch({ type: DELETE_FAVORITES, payload: id });
+  };
 }

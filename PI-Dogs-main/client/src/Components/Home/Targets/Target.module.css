@@ -45,6 +45,11 @@
     color: black;
 }
 
+.iconFav_delete {
+    font-size: calc(1em + 1vw);
+    color: red;
+}
+
 
 /* ICONO CN EFECTO DE CARTEL ANIMADO */
 .tooltip {

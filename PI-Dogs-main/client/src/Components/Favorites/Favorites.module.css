@@ -1,0 +1,41 @@
+.contRey {
+    padding: 20px 20px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    flex-wrap: wrap;
+    column-gap: 110px;
+    row-gap: 40px;
+    width: 100vw;
+    height: fit-content;
+}
+
+
+.contFiltros select {
+    /* padding: 5px; */
+    /* max-width: 150px; */
+    font-size: calc(1em + 0.2vw);
+    margin: 10px 10px;
+    border: none;
+    background-color: rgb(166, 140, 193);
+    color: #fff;
+    border-radius: 16px;
+    cursor: pointer;
+    padding-left: 5px;
+    transition: all 0.25s ease;
+    /* appearance: none; */
+}
+
+
+
+.arowButton {
+    /* font-size: calc(1em + 3vw); */
+    font-size: calc(1em + 1vw);
+
+    margin: 10px 10px;
+    border: none;
+    /* background-color: rgba(138, 93, 183, 1); */
+    color: rgba(138, 93, 183, 1);
+    border-radius: 16px;
+    cursor: pointer;
+}

@@ -111,7 +111,7 @@
 .texto_1 {
     padding: 10px;
     margin: 0px 20px;
-    font-size: calc(1em + 0.8vw);
+    font-size: calc(1em + 0.5vw);
 }
 
 .texto_2 {
@@ -123,6 +123,21 @@
 }
 
 .texto_2 a i {
-    font-size: calc(1em + 4vw);
+    font-size: calc(1em + 3vw);
     color: black;
+}
+
+.texto_3 {
+    width: 50%;
+}
+
+
+.texto_3 .icons {
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
+    color: #733ca9;
+    padding-top: 10px;
+    font-size: calc(1em + 1vw);
+
 }
