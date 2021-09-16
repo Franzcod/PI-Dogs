@@ -53,7 +53,7 @@ const Home = () => {
     //para q se vea el gif de loading
     setTimeout(() => {
       setLoading(false);
-    }, 2000);
+    }, 200);
   }, []);
 
   return (

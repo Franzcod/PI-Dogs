@@ -1,13 +1,19 @@
-import React from "react";
+/* eslint-disable react-hooks/exhaustive-deps */
+import React, { useEffect } from "react";
 import styles from "./Create.module.css";
 import { FiSave } from "react-icons/fi";
-// import { useDispatch, useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { createDog } from "../../Actions";
 // import { Redirect } from "react-router-dom";
 import { useHistory } from "react-router-dom";
 import dog from "./../../assets/asoma.png";
+import { getTemperaments } from "../../Actions/index";
 
 const Create = () => {
+  const dispatch = useDispatch();
+
+  const allTemperaments = useSelector((state) => state.temperaments);
+
   function validate(data) {
     const errors = {};
     if (!data.name) errors.name = "You must enter a breed or name";
@@ -37,7 +43,22 @@ const Create = () => {
   const [error_inputs, setError_inputs] = React.useState(false);
 
   function handleChange(e) {
-    if (e.target.name === "temperaments") {
+    if (e === document.form[6]) {
+      console.log("handle :", e);
+      setFormData((prevData) => {
+        let txT = e.value.split(",");
+        // console.log(txT);
+        const state = {
+          ...prevData,
+          [e.name]: txT,
+        };
+        // console.log(txT);
+        const validations = validate(state);
+        setErrors(validations);
+
+        return state;
+      });
+    } else if (e.target.name === "temperaments") {
       setFormData((prevData) => {
         let txT = e.target.value.split(",");
         // console.log(txT);
@@ -52,6 +73,11 @@ const Create = () => {
         return state;
       });
     } else {
+      if (e.target.name === "image") {
+        console.log(e.target.value);
+        // document.img.img1.src = e.target.value;
+        document.img1.src = e.target.value;
+      }
       setFormData((prevData) => {
         let txT =
           e.target.value.charAt(0).toUpperCase() + e.target.value.slice(1);
@@ -66,6 +92,23 @@ const Create = () => {
         return state;
       });
     }
+  }
+
+  function agregarAlInput(e) {
+    console.log(e.target.value);
+    let valorActual = document.form.temperaments.value;
+    console.log(valorActual);
+    if (!valorActual.length) {
+      document.form.temperaments.value = valorActual.concat(e.target.value);
+    } else {
+      document.form.temperaments.value = valorActual.concat(
+        ",",
+        e.target.value
+      );
+    }
+    // document.form.temperaments.value = valorActual.concat(e.target.value, ",");
+
+    handleChange(document.form[6]);
   }
 
   function handleSubmit(e) {
@@ -100,6 +143,10 @@ const Create = () => {
     }
   }
 
+  useEffect(() => {
+    dispatch(getTemperaments());
+  }, []);
+
   return (
     <div className={styles.contRey}>
       <div
@@ -110,7 +157,12 @@ const Create = () => {
       </div>
       <img src={dog} alt=""></img>
       <div className={styles.caja}>
-        <form id="form_id" onSubmit={handleSubmit} className={styles.form}>
+        <form
+          name="form"
+          id="form_id"
+          onSubmit={handleSubmit}
+          className={styles.form}
+        >
           <FormItem
             label="Breed:"
             name="name"
@@ -159,15 +211,7 @@ const Create = () => {
           />
 
           <FormItem
-            label="Url image:"
-            name="image"
-            value={formData.image}
-            handleChange={handleChange}
-            error=""
-            optional="Optional"
-          />
-
-          <FormItem
+            id="input_temp"
             label="Temperaments:"
             name="temperaments"
             value={formData.temperaments}
@@ -176,11 +220,57 @@ const Create = () => {
             optional="Optional"
           />
 
-          <div className={styles.botonSave}>
-            <button type="submit">
-              <FiSave />
-              SAVE
-            </button>
+          <select
+            onChange={(e) => agregarAlInput(e)}
+            style={{
+              width: "fit-content",
+              margin: "auto",
+              backgroundColor: "white",
+              borderRadius: "10px",
+              border: "none",
+              padding: "3px",
+            }}
+          >
+            <option key={0} type="checkbox" name="tempSele">
+              Select:
+            </option>
+            {allTemperaments &&
+              allTemperaments.map((el) => (
+                <option key={el} type="checkbox" name="tempSele">
+                  {el}
+                </option>
+              ))}
+          </select>
+
+          <FormItem
+            label="Url image:"
+            name="image"
+            value={formData.image}
+            handleChange={handleChange}
+            error=""
+            optional="Optional"
+          />
+
+          <div className={styles.contBotonImg}>
+            <img
+              name="img1"
+              // style={{ width: "100px", height: "100px" }}
+              src="https://http2.mlstatic.com/D_NQ_NP_764801-MLM45688274965_042021-V.jpg"
+              alt=""
+            />
+
+            <div className={styles.botonSave}>
+              <button type="submit">
+                <FiSave />
+                SAVE
+              </button>
+            </div>
+          </div>
+          <div
+            id="cartel"
+            className={error_inputs ? styles.cartel_none : styles.cartel_ok}
+          >
+            <button>Campos obligatorios vacios!</button>
           </div>
         </form>
       </div>

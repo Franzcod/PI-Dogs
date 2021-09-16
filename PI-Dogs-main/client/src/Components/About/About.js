@@ -25,8 +25,7 @@ const About = () => {
         <div className={style.caja}>
           <h2>Dogcity App</h2>
           <p className={style.texto_1}>
-            Proyecto creado por Francisco Palacios , para el proyecto individual
-            de Henry.
+            Proyecto creado por Francisco Palacios , para el PI de Henry.
           </p>
 
           <div className={style.texto_2}>
