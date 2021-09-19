@@ -4,7 +4,8 @@
     padding-top: 7vh;
     background-color: rgba(248, 244, 244, 0.61);
     width: 100vw;
-    height: 100vh;
+    height: fit-content;
+    padding-bottom: 10vh;
 }
 
 

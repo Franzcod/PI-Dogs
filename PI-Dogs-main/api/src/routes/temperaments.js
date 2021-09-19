@@ -24,17 +24,31 @@ router.get("/", async (req, res, next) => {
   }
 });
 
+// router.post("/", async (req, res, next) => {
+//   const { name } = req.body;
+//   try {
+//     const newTemperament = await Temperament.create({
+//       name,
+//     });
+//     console.log(" Temperamentos nuevo guardado ".black.bgBlue);
+//     res.json(newTemperament);
+//   } catch (error) {
+//     next("Rompio el POST Temperament: ".red, error);
+//   }
+// });
+
 router.post("/", async (req, res, next) => {
   const { name } = req.body;
-  try {
-    const newTemperament = await Temperament.create({
-      name,
-    });
-    console.log(" Temperamentos nuevo guardado ".black.bgBlue);
-    res.json(newTemperament);
-  } catch (error) {
-    next("Rompio el POST Temperament: ".red, error);
-  }
+  console.log("1,: ", res);
+  const newTemperament = Temperament.create({
+    name,
+  })
+    .then((resp) => {
+      // console.log(res);
+      return res.send(resp);
+      // return res.json;
+    })
+    .catch((error) => console.log(error));
 });
 
 module.exports = router;
