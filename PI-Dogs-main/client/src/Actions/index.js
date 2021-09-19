@@ -13,7 +13,7 @@ import axios from "axios";
 
 export function getDogs() {
   return function (dispatch) {
-    return axios.get("http://localhost:3001/api/dogs/").then((resp) => {
+    return axios.get("/api/dogs/").then((resp) => {
       //   console.log("de action ", resp.data);
       dispatch({ type: GET_DOGS, payload: resp.data });
     });
@@ -23,7 +23,7 @@ export function getDogs() {
 // Get todos los temperamentos
 export function getTemperaments() {
   return function (dispatch) {
-    return axios.get("http://localhost:3001/api/temperaments/").then((resp) => {
+    return axios.get("/api/temperaments/").then((resp) => {
       // console.log("de action ", resp.data);
       let respu = resp.data.map((el) => {
         return el.name;
@@ -35,7 +35,7 @@ export function getTemperaments() {
 //Get dogs creados por el usuario
 export function getDogsCreateByUser() {
   return function (dispatch) {
-    return axios.get("http://localhost:3001/api/dogs/").then((resp) => {
+    return axios.get("/api/dogs/").then((resp) => {
       let aux = resp.data.filter((el) => {
         return el.userCreate === true;
       });
@@ -48,7 +48,7 @@ export function getDogsCreateByUser() {
 // Get dogs originarios de la API
 export function getDogsForApi() {
   return function (dispatch) {
-    return axios.get("http://localhost:3001/api/dogs/").then((resp) => {
+    return axios.get("/api/dogs/").then((resp) => {
       let aux = resp.data.filter((el) => {
         return el.userCreate === false;
       });
@@ -61,7 +61,7 @@ export function getDogsForApi() {
 // traer los dogs con el temperamento mencionado
 export function getDogsForTemperament(temp) {
   return function (dispatch) {
-    return axios.get("http://localhost:3001/api/dogs/").then((resp) => {
+    return axios.get("/api/dogs/").then((resp) => {
       let aux = resp.data.filter((el) => {
         return el.temperaments && el.temperaments.split(", ").includes(temp);
       });
@@ -74,18 +74,16 @@ export function getDogsForTemperament(temp) {
 export function getByBreed(breed) {
   // console.log("backend ", breed);
   return function (dispatch) {
-    return axios
-      .get(`http://localhost:3001/api/dogs?name=` + breed)
-      .then((resp) => {
-        dispatch({ type: GET_DOGS_FOR_BREED, payload: resp.data });
-      });
+    return axios.get(`/api/dogs?name=` + breed).then((resp) => {
+      dispatch({ type: GET_DOGS_FOR_BREED, payload: resp.data });
+    });
   };
 }
 
 export function getById(id) {
   // console.log("backend id= ", id);
   return function (dispatch) {
-    return axios.get(`http://localhost:3001/api/dogs/` + id).then((resp) => {
+    return axios.get(`/api/dogs/` + id).then((resp) => {
       dispatch({ type: GET_DOG_FOR_ID, payload: resp.data });
     });
   };
@@ -101,14 +99,14 @@ export async function createDog(dog) {
   }
   // console.log(dog);
 
-  return axios.post(`http://localhost:3001/api/dogs/`, dog);
+  return axios.post(`/api/dogs/`, dog);
 }
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////
 //DELETE
 
 export async function deleteDog(id, dispatch) {
-  return axios.delete(`http://localhost:3001/api/dogs/` + id).then((resp) => {
+  return axios.delete(`/api/dogs/` + id).then((resp) => {
     dispatch({ type: GET_DOGS, payload: resp.data });
   });
 }
@@ -127,7 +125,7 @@ export function get_Favorites() {
 export function isFavorite(id) {
   // console.log("backend id= ", id);
   return function (dispatch) {
-    return axios.get(`http://localhost:3001/api/dogs/` + id).then((resp) => {
+    return axios.get(`/api/dogs/` + id).then((resp) => {
       // console.log("action ", resp.data);
       dispatch({ type: IS_FAVORITE, payload: resp.data });
     });

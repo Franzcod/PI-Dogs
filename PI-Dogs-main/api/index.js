@@ -40,7 +40,7 @@ conn.sync({ force: true }).then(async () => {
   //Se guardan en BD todos los temperamentos
   await Temperament.bulkCreate(objTemperamentos); //recibe un arreglo con objetos y asigna a mi tabla segun la propiedad el valor
 
-  server.listen(3001, () => {
+  server.listen(process.env.PORT, () => {
     console.log(" Server in port   > 3001 ".black.bgMagenta); // eslint-disable-line no-console
   });
 });
