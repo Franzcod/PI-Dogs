@@ -21,7 +21,7 @@ const server = require("./src/app.js");
 const { conn } = require("./src/db.js");
 var colors = require("colors");
 const services = require("./src/services/services_API");
-const { Temperament } = require("../api/src/db.js");
+const { Temperament } = require("./src/db");
 
 // Syncing all the models at once.
 conn.sync({ force: false }).then(async () => {
