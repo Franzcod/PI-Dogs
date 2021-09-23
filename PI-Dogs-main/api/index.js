@@ -24,7 +24,7 @@ const services = require("../api/src/services/services_API.js");
 const { Temperament } = require("../api/src/db.js");
 
 // Syncing all the models at once.
-conn.sync({ force: true }).then(async () => {
+conn.sync({ force: false }).then(async () => {
   console.log(" Base de datos conectada ".bgYellow.black);
   // SE PRECARGAN LOS TEMPERAMENTOS EN BASE DE DATOS (DESDE LA API)
   console.log(" Precargando Temperamentos de API en DB... ".black.bgYellow);
