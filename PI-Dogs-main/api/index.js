@@ -20,7 +20,7 @@
 const server = require("./src/app.js");
 const { conn } = require("./src/db.js");
 var colors = require("colors");
-const services = require("../api/src/services/services_API.js");
+const services = require("./src/services/services_API");
 const { Temperament } = require("../api/src/db.js");
 
 // Syncing all the models at once.
